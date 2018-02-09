@@ -7,17 +7,17 @@
   
   <title>交换两数的值 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于使用异或运算交换两数的值 异或运算可以达到交换两数的目的，代码如下 1234567&amp;gt;    void swap_over(int &amp;amp;a, int &amp;amp;b)&amp;gt;    &amp;#123;&amp;gt;        a = a^b;&amp;gt;        b = a^b;&amp;gt;        a = a^b;&amp;gt;    &amp;#125;&amp;gt;     但不推荐使用这种方式，附上常">
+  <meta name="description" content="关于使用异或运算交换两数的值 异或运算可以达到交换两数的目的，代码如下123456void swap_over(int &amp;amp;a, int &amp;amp;b)&amp;#123;    a = a^b;    b = a^b;    a = a^b;&amp;#125;   但不推荐使用这种方式，附上常用的临时变量方法对比说明123456void swap_over2（int &amp;amp;a, int &amp;amp;b">
 <meta name="keywords" content="位运算; 临时变量;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="交换两数的值">
 <meta property="og:url" content="http://yoursite.com/2018/02/09/交换两数的值/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="关于使用异或运算交换两数的值 异或运算可以达到交换两数的目的，代码如下 1234567&amp;gt;    void swap_over(int &amp;amp;a, int &amp;amp;b)&amp;gt;    &amp;#123;&amp;gt;        a = a^b;&amp;gt;        b = a^b;&amp;gt;        a = a^b;&amp;gt;    &amp;#125;&amp;gt;     但不推荐使用这种方式，附上常">
-<meta property="og:updated_time" content="2018-02-09T15:33:06.131Z">
+<meta property="og:description" content="关于使用异或运算交换两数的值 异或运算可以达到交换两数的目的，代码如下123456void swap_over(int &amp;amp;a, int &amp;amp;b)&amp;#123;    a = a^b;    b = a^b;    a = a^b;&amp;#125;   但不推荐使用这种方式，附上常用的临时变量方法对比说明123456void swap_over2（int &amp;amp;a, int &amp;amp;b">
+<meta property="og:updated_time" content="2018-02-09T16:11:35.847Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="交换两数的值">
-<meta name="twitter:description" content="关于使用异或运算交换两数的值 异或运算可以达到交换两数的目的，代码如下 1234567&amp;gt;    void swap_over(int &amp;amp;a, int &amp;amp;b)&amp;gt;    &amp;#123;&amp;gt;        a = a^b;&amp;gt;        b = a^b;&amp;gt;        a = a^b;&amp;gt;    &amp;#125;&amp;gt;     但不推荐使用这种方式，附上常">
+<meta name="twitter:description" content="关于使用异或运算交换两数的值 异或运算可以达到交换两数的目的，代码如下123456void swap_over(int &amp;amp;a, int &amp;amp;b)&amp;#123;    a = a^b;    b = a^b;    a = a^b;&amp;#125;   但不推荐使用这种方式，附上常用的临时变量方法对比说明123456void swap_over2（int &amp;amp;a, int &amp;amp;b">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -53,9 +53,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -87,20 +87,19 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="关于使用异或运算交换两数的值"><a href="#关于使用异或运算交换两数的值" class="headerlink" title="关于使用异或运算交换两数的值"></a>关于使用异或运算交换两数的值</h4><ul>
-<li>异或运算可以达到交换两数的目的，代码如下<blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;    void swap_over(int &amp;a, int &amp;b)</span><br><span class="line">&gt;    &#123;</span><br><span class="line">&gt;        a = a^b;</span><br><span class="line">&gt;        b = a^b;</span><br><span class="line">&gt;        a = a^b;</span><br><span class="line">&gt;    &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
+<li>异或运算可以达到交换两数的目的，代码如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void swap_over(int &amp;a, int &amp;b)</span><br><span class="line">&#123;</span><br><span class="line">    a = a^b;</span><br><span class="line">    b = a^b;</span><br><span class="line">    a = a^b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<blockquote>
-<p><strong>但不推荐使用这种方式</strong>，附上常用的临时变量方法对比说明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;     void swap_over2（int &amp;a, int &amp;b）</span><br><span class="line">&gt;     &#123;</span><br><span class="line">&gt;        int tmp = a;</span><br><span class="line">&gt;        a = b;</span><br><span class="line">&gt;        b = tmp;</span><br><span class="line">&gt;     &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
-<p>对于临时变量法，每次赋值只要读取一个变量的值到寄存器，然后再从寄存器写回到另一个变量中即可，前后涉及两次内存写入操作。但是对于异或运算操作，每次都需要读取两个数据到寄存器种，再进行运算操作，之后把结果写回到变量中，前后共需要三次内存写入操作。<br>如果使用C语言实现上述两种方法，并用gcc编译器编译，可以使用命令<br><code>gcc -S swap.c</code><br>查看相应的汇编代码，临时变量法代码行数更少，另外使用gcc编译器时，用异或运算交换数组会出错，参见<a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=40366" target="_blank" rel="noopener">链接</a>。</p>
-</blockquote>
+<p><strong>但不推荐使用这种方式</strong>，附上常用的临时变量方法对比说明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void swap_over2（int &amp;a, int &amp;b）</span><br><span class="line">&#123;</span><br><span class="line">    int tmp = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>对于临时变量法，每次赋值只要读取一个变量的值到寄存器，然后再从寄存器写回到另一个变量中即可，前后涉及两次内存写入操作;但是对于异或运算操作，每次都需要读取两个数据到寄存器种，再进行运算操作，之后把结果写回到变量中，前后共需要三次内存写入操作。</li>
+<li>如果使用C语言实现上述两种方法，并用gcc编译器编译，可以使用命令 <code>gcc -S swap.c</code>查看相应的汇编代码，临时变量法代码行数更少，另外使用gcc编译器时，用异或运算交换数组会出错，参见<a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=40366" target="_blank" rel="noopener">链接</a>。</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/09/交换两数的值/" data-id="cjdg3jp9x0000w8vjt9gkez47" class="article-share-link">共有</a>
+      <a data-url="http://yoursite.com/2018/02/09/交换两数的值/" data-id="cjdg4qu2n0001novjc6e2h03g" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/位运算-临时变量/">位运算; 临时变量;</a></li></ul>
@@ -109,6 +108,16 @@
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2018/02/09/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
   
 </article>
 
@@ -121,7 +130,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">タグ</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/位运算-临时变量/">位运算; 临时变量;</a></li></ul>
     </div>
@@ -131,7 +140,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">タグクラウド</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/tags/位运算-临时变量/" style="font-size: 10px;">位运算; 临时变量;</a>
     </div>
@@ -140,7 +149,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">アーカイブ</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li></ul>
     </div>
@@ -150,12 +159,16 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">最近の投稿</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
         
           <li>
             <a href="/2018/02/09/交换两数的值/">交换两数的值</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/09/hello-world/">Hello World</a>
           </li>
         
       </ul>
