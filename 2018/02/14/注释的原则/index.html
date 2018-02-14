@@ -5,14 +5,19 @@
   
 
   
-  <title></title>
+  <title>注释的原则 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="写好注释的几条原则： 假设读者的语言水平跟你一样，比如说，不要去解释“什么是字符串，也别去解释什么是赋值语句”。 不要注释那些显而易见的事情，比如下面这条注释是毫无意义的：` count=count+1 //add one to count `  在代码中写上一些以”TODO”或”FIXME”开始的注释，目的是为了提醒他们回来编写或清理一些未解决的问题。 如果你在编写某段程序时需要使劲思考的话，那">
+<meta name="keywords" content="编程; 注释;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="注释的原则">
+<meta property="og:url" content="http://yoursite.com/2018/02/14/注释的原则/index.html">
 <meta property="og:site_name">
+<meta property="og:description" content="写好注释的几条原则： 假设读者的语言水平跟你一样，比如说，不要去解释“什么是字符串，也别去解释什么是赋值语句”。 不要注释那些显而易见的事情，比如下面这条注释是毫无意义的：` count=count+1 //add one to count `  在代码中写上一些以”TODO”或”FIXME”开始的注释，目的是为了提醒他们回来编写或清理一些未解决的问题。 如果你在编写某段程序时需要使劲思考的话，那">
+<meta property="og:updated_time" content="2018-02-14T04:18:27.781Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title">
+<meta name="twitter:title" content="注释的原则">
+<meta name="twitter:description" content="写好注释的几条原则： 假设读者的语言水平跟你一样，比如说，不要去解释“什么是字符串，也别去解释什么是赋值语句”。 不要注释那些显而易见的事情，比如下面这条注释是毫无意义的：` count=count+1 //add one to count `  在代码中写上一些以”TODO”或”FIXME”开始的注释，目的是为了提醒他们回来编写或清理一些未解决的问题。 如果你在编写某段程序时需要使劲思考的话，那">
   
     <link rel="alternate" href="/atom.xml" title="" type="application/atom+xml">
   
@@ -59,9 +64,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-注释的原则" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-注释的原则" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/14/注释的原则/" class="article-date">
   <time datetime="2018-02-14T03:59:41.000Z" itemprop="datePublished">2018-02-14</time>
@@ -74,8 +77,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/14/注释的原则/">注释的原则</a>
+    <h1 class="article-title" itemprop="name">
+      注释的原则
     </h1>
   
 
@@ -108,103 +111,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-交换两数的值" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/09/交换两数的值/" class="article-date">
-  <time datetime="2018-02-09T15:17:46.000Z" itemprop="datePublished">2018-02-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/09/交换两数的值/">交换两数的值</a>
-    </h1>
+    <a href="/2018/02/09/交换两数的值/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">交换两数的值</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="关于使用异或运算交换两数的值"><a href="#关于使用异或运算交换两数的值" class="headerlink" title="关于使用异或运算交换两数的值"></a>关于使用异或运算交换两数的值</h3><ul>
-<li>异或运算可以达到交换两数的目的，代码如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void swap_over(int &amp;a, int &amp;b)</span><br><span class="line">&#123;</span><br><span class="line">    a = a^b;</span><br><span class="line">    b = a^b;</span><br><span class="line">    a = a^b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>但不推荐使用这种方式</strong>，附上常用的临时变量方法对比说明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void swap_over2（int &amp;a, int &amp;b）</span><br><span class="line">&#123;</span><br><span class="line">    int tmp = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>对于临时变量法，每次赋值只要读取一个变量的值到寄存器，然后再从寄存器写回到另一个变量中即可，前后涉及两次内存写入操作;但是对于异或运算操作，每次都需要读取两个数据到寄存器种，再进行运算操作，之后把结果写回到变量中，前后共需要三次内存写入操作。</li>
-<li>如果使用C语言实现上述两种方法，并用gcc编译器编译，可以使用命令 <code>gcc -S swap.c</code>查看相应的汇编代码，临时变量法代码行数更少，另外使用gcc编译器时，用异或运算交换数组会出错，参见<a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=40366" target="_blank" rel="noopener">链接</a>。</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/09/交换两数的值/" data-id="cjdmkh5bc0004yovjm6fnjhdk" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/位运算-临时变量/">位运算; 临时变量;</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/09/hello-world/" class="article-date">
-  <time datetime="2018-02-09T14:44:03.509Z" itemprop="datePublished">2018-02-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/09/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/09/hello-world/" data-id="cjdmkh5a20000yovj4tt6s2zh" class="article-share-link">Teilen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
