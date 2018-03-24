@@ -87,13 +87,13 @@
 <meta property="og:site_name" content="tangxuan&#39;s Notes">
 <meta property="og:description" content="关于使用异或运算交换两数的值 异或运算可以达到交换两数的目的，代码如下123456void swap(int &amp;amp;a, int &amp;amp;b)&amp;#123;    a = a^b;           b = a^b;           a = a^b;       &amp;#125;   但不推荐使用这种方式，附上常用的临时变量方法对比说明。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/tangxuan1023/tangxuan1023.github.io/master/images/%E4%BA%A4%E6%8D%A2%E4%B8%A4%E6%95%B0%E7%9A%84%E5%80%BC/swap_cmp.png"图1 临时变量法和加减法汇编代码对比"">
-<meta property="og:image" content="https://raw.githubusercontent.com/tangxuan1023/tangxuan1023.github.io/master/images/%E4%BA%A4%E6%8D%A2%E4%B8%A4%E6%95%B0%E7%9A%84%E5%80%BC/swap_cmp2.png"图2 异或方法和加减法汇编代码对比"">
-<meta property="og:updated_time" content="2018-03-24T08:55:54.270Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/tangxuan1023/tangxuan1023.github.io/master/images/%E4%BA%A4%E6%8D%A2%E4%B8%A4%E6%95%B0%E7%9A%84%E5%80%BC/swap_cmp.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/tangxuan1023/tangxuan1023.github.io/master/images/%E4%BA%A4%E6%8D%A2%E4%B8%A4%E6%95%B0%E7%9A%84%E5%80%BC/swap_cmp2.png">
+<meta property="og:updated_time" content="2018-03-24T08:57:44.136Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="交换两数的值">
 <meta name="twitter:description" content="关于使用异或运算交换两数的值 异或运算可以达到交换两数的目的，代码如下123456void swap(int &amp;amp;a, int &amp;amp;b)&amp;#123;    a = a^b;           b = a^b;           a = a^b;       &amp;#125;   但不推荐使用这种方式，附上常用的临时变量方法对比说明。">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/tangxuan1023/tangxuan1023.github.io/master/images/%E4%BA%A4%E6%8D%A2%E4%B8%A4%E6%95%B0%E7%9A%84%E5%80%BC/swap_cmp.png"图1 临时变量法和加减法汇编代码对比"">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/tangxuan1023/tangxuan1023.github.io/master/images/%E4%BA%A4%E6%8D%A2%E4%B8%A4%E6%95%B0%E7%9A%84%E5%80%BC/swap_cmp.png">
 
 
 
@@ -406,7 +406,7 @@
 </ul>
 <p>这种方式同样需要三次内存写入操作，同时代码可读性也较差。</p>
 <ul>
-<li>最后附上两张三种方法编译后对应汇编代码对比图（平台：Ubuntu14.04，gcc 4.8.4），图中<code>swap1.c文件</code>对应临时变量法，<code>swap2.c文件</code>对应加减方法，<code>swap3.c文件</code>对应异或方法。可以看到，临时变量法编译出的汇编代码量最少即效率更高，加减法和异或方法的区别仅仅是计算方式不同而已，操作步骤是一致的。<br><img src="https://raw.githubusercontent.com/tangxuan1023/tangxuan1023.github.io/master/images/%E4%BA%A4%E6%8D%A2%E4%B8%A4%E6%95%B0%E7%9A%84%E5%80%BC/swap_cmp.png&quot;图1 临时变量法和加减法汇编代码对比&quot;" alt="图1 临时变量法和加减法汇编代码对比"><br><img src="https://raw.githubusercontent.com/tangxuan1023/tangxuan1023.github.io/master/images/%E4%BA%A4%E6%8D%A2%E4%B8%A4%E6%95%B0%E7%9A%84%E5%80%BC/swap_cmp2.png&quot;图2 异或方法和加减法汇编代码对比&quot;" alt="图2 异或方法和加减法汇编代码对比"></li>
+<li>最后附上两张三种方法编译后对应汇编代码对比图（平台：Ubuntu14.04，gcc 4.8.4），图中<code>swap1.c文件</code>对应临时变量法，<code>swap2.c文件</code>对应加减方法，<code>swap3.c文件</code>对应异或方法。可以看到，临时变量法编译出的汇编代码量最少即效率更高，加减法和异或方法的区别仅仅是计算方式不同而已，操作步骤是一致的。<br><img src="https://raw.githubusercontent.com/tangxuan1023/tangxuan1023.github.io/master/images/%E4%BA%A4%E6%8D%A2%E4%B8%A4%E6%95%B0%E7%9A%84%E5%80%BC/swap_cmp.png" alt="图1 临时变量法和加减法汇编代码对比" title="图1 临时变量法和加减法汇编代码对比"><br><img src="https://raw.githubusercontent.com/tangxuan1023/tangxuan1023.github.io/master/images/%E4%BA%A4%E6%8D%A2%E4%B8%A4%E6%95%B0%E7%9A%84%E5%80%BC/swap_cmp2.png" alt="图2 异或方法和加减法汇编代码对比" title="图2 异或方法和加减法汇编代码对比"></li>
 </ul>
 
       
