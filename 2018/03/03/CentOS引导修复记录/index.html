@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="引导修复 用CentOS iso文件制作启动u盘进入到安装CentOS的界面，然后选择rescue a CentOS system。  根据提示选择选项进入rdshell命令行界面，输入：chroot /mnt/sysimage将系统挂载至/mnt/sysimage，执行fdisk -l 查看系统安装在哪个磁盘上（故障系统安装为/dev/sda），接着为sda安装grub，执行以下命令：/sbin">
+<meta name="description" content="引导修复 用CentOS iso文件制作启动u盘进入到安装CentOS的界面，然后选择rescue a CentOS system。">
 <meta name="keywords" content="系统维护">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS引导修复记录">
 <meta property="og:url" content="http://yoursite.com/2018/03/03/CentOS引导修复记录/index.html">
 <meta property="og:site_name" content="tangxuan&#39;s Notes">
-<meta property="og:description" content="引导修复 用CentOS iso文件制作启动u盘进入到安装CentOS的界面，然后选择rescue a CentOS system。  根据提示选择选项进入rdshell命令行界面，输入：chroot /mnt/sysimage将系统挂载至/mnt/sysimage，执行fdisk -l 查看系统安装在哪个磁盘上（故障系统安装为/dev/sda），接着为sda安装grub，执行以下命令：/sbin">
+<meta property="og:description" content="引导修复 用CentOS iso文件制作启动u盘进入到安装CentOS的界面，然后选择rescue a CentOS system。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-03T07:05:30.508Z">
+<meta property="og:updated_time" content="2018-03-24T07:38:56.194Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS引导修复记录">
-<meta name="twitter:description" content="引导修复 用CentOS iso文件制作启动u盘进入到安装CentOS的界面，然后选择rescue a CentOS system。  根据提示选择选项进入rdshell命令行界面，输入：chroot /mnt/sysimage将系统挂载至/mnt/sysimage，执行fdisk -l 查看系统安装在哪个磁盘上（故障系统安装为/dev/sda），接着为sda安装grub，执行以下命令：/sbin">
+<meta name="twitter:description" content="引导修复 用CentOS iso文件制作启动u盘进入到安装CentOS的界面，然后选择rescue a CentOS system。">
 
 
 
@@ -337,6 +337,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                   字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                   分钟
+                </span>
+              
+            </div>
+          
 
           
 
@@ -354,10 +385,8 @@
 
       
         <h2 id="引导修复"><a href="#引导修复" class="headerlink" title="引导修复"></a>引导修复</h2><ul>
-<li><p>用CentOS iso文件制作启动u盘进入到安装CentOS的界面，然后选择<code>rescue a CentOS system</code>。</p>
-</li>
-<li><p>根据提示选择选项进入rdshell命令行界面，输入：<code>chroot /mnt/sysimage</code>将系统挂载至<code>/mnt/sysimage</code>，执行<code>fdisk -l</code> 查看系统安装在哪个磁盘上（故障系统安装为/dev/sda），接着为sda安装grub，执行以下命令：<code>/sbin/grub-install --root-directory=/ /dev/sda</code>。执行<code>cfdisk</code> 查看磁盘分区细节，并记录。</p>
-</li>
+<li>用CentOS iso文件制作启动u盘进入到安装CentOS的界面，然后选择<code>rescue a CentOS system</code>。<a id="more"></a></li>
+<li>根据提示选择选项进入rdshell命令行界面，输入：<code>chroot /mnt/sysimage</code>将系统挂载至<code>/mnt/sysimage</code>，执行<code>fdisk -l</code> 查看系统安装在哪个磁盘上（故障系统安装为/dev/sda），接着为sda安装grub，执行以下命令：<code>/sbin/grub-install --root-directory=/ /dev/sda</code>。执行<code>cfdisk</code> 查看磁盘分区细节，并记录。</li>
 <li>执行<code>ls /boot/grub</code>，确认grub目录生成成功，reboot重新启动系统。</li>
 <li><p>重启后系统进入grub引导界面，在提示符后面分别执行以下命令（tab键能补全，若报error，表明分区指定不对，需重新开始）：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">grub&gt; root (hd0, 6) </span><br><span class="line">#指定根目录为第一块磁盘的第7个逻辑分区，即/dev/sda7</span><br><span class="line"></span><br><span class="line">grub&gt; kernel /boot/vmlinuz-2.6.32-431.el6.x86_64 ro root=/dev/sda7</span><br><span class="line">#加载内核</span><br><span class="line"></span><br><span class="line">grub&gt; initrd /boot/initramfs-2.6.32-431.el.x86_64.img</span><br><span class="line">#临时根文件系统</span><br><span class="line"></span><br><span class="line">grub&gt; boot</span><br><span class="line">#启动</span><br></pre></td></tr></table></figure>
@@ -521,7 +550,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -531,6 +560,22 @@
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/tangxuan1023" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:yuzhixuan_1009@sina.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
           
 
           
