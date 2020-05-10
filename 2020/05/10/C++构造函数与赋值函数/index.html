@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="tangxuan&#39;s Notes">
 <meta property="og:description" content="关于编译器合成的构造函数 本文从编译器的角度理解一些关于编译器默认合成的构造函数及对象初始化的一些细节，这些细节容易被忽略或者被误解。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-10T07:28:31.623Z">
+<meta property="og:updated_time" content="2020-05-10T07:30:02.659Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++构造函数与赋值函数">
 <meta name="twitter:description" content="关于编译器合成的构造函数 本文从编译器的角度理解一些关于编译器默认合成的构造函数及对象初始化的一些细节，这些细节容易被忽略或者被误解。">
@@ -390,16 +390,13 @@
 </li>
 </ul>
 <h1 id="Default-constructor"><a href="#Default-constructor" class="headerlink" title="Default constructor"></a><strong>Default constructor</strong></h1><ul>
-<li><p><font color="red">误解一：任何class如果程序员没有显式定义default constructor，则编译器就会合成一个。</font></p>
-<blockquote>
-<p>default constructor只会在需要的时候才由编译器合成，关于“需要的时候”的解释如下：<strong>这里的主体是编译器，即在编译器需要的时候，被合成出来的constructor只执行编译器所需要的动作</strong>。在没有显式定义时，以下四种情况下会合成 default constructor：</p>
+<li><p><font color="red">误解一：任何class如果程序员没有显式定义default constructor，则编译器就会合成一个。</font><br>default constructor只会在需要的时候才由编译器合成，关于“需要的时候”的解释如下：<strong>这里的主体是编译器，即在编译器需要的时候，被合成出来的constructor只执行编译器所需要的动作</strong>。在没有显式定义时，以下四种情况下会合成 default constructor：</p>
 <ul>
 <li>带有default constructor的member class object;</li>
 <li>带有default constructor的base class;</li>
 <li>带有一个virtual function的class;</li>
 <li>带有一个virtual base class的class。</li>
 </ul>
-</blockquote>
 <p>至于没有存在这4种情况而又没有显式声明任何constructor的class，我们说它们拥有的是<strong>implicit trivial default constructors</strong>，它们实际上并不会被编译器合出来。</p>
 </li>
 <li><p><font color="red">误解二：编译器合成的default constructor会显式设定class内每一个数据成员（data member）的默认值。</font></p>
@@ -408,18 +405,24 @@
 </blockquote>
 </li>
 </ul>
-<h1 id="Copy-Constructor"><a href="#Copy-Constructor" class="headerlink" title="Copy Constructor"></a><strong>Copy Constructor</strong></h1><blockquote>
-<p>以下三种情况需要调用copy constructor：</p>
-<pre><code>* 一个对象以值传递的方式传入函数体;
-* 一个对象以值传递的方式从函数返回;
-* 一个对象显式地使用另外一个对象进行初始化。
-</code></pre><p>同样，如果没有显式定义，编译器就会在“需要的时候”合成copy constructor。copy constructor同样区分为trivial和nontrivial两种，<strong>只有nontrivial的实例（这里指代copy constructor）才会被实际上被合成出来</strong>，决定一个copy constructor是否为trivial的标准在于class是否展现出“bitwise copy semantics”（位逐次拷贝），即如果“bitwise copy semantics”已经能成功且正确地完成copy任务，则编译器无需再合成copy constructor，即为trivial。<code>（这里的主体是编译器，并不是程序，比如如果class成员包含指针，使用bitwise copy semantics的copy对程序来说可能会造成不同对象实例的成员指针引用同一块内存，会有double free等问题，但这和编译器是否会合成copy constructor没有关系）</code></p>
-<p>没有显式定义时，以下四种情况下，class 不展现“bitwise copy semantics”（即编译器使用bitwise copy semantics不能成功完成copy任务）：</p>
-<pre><code>* 当一个class内含一个member object 而后者的class声明有一个copy constructor时（不论是由class设计者显式声明还是由编译器隐式合成出来）;
-* 当class继承自一个base class 而后者存在一个copy constructor（不论是由class设计者显式声明还是由编译器隐式合成出来）;
-* 当class声明了一个或多个virtual functions时;
-* 当一个class派生自一个继承链，其中有一个或多个virtual base classes时。
-</code></pre></blockquote>
+<h1 id="Copy-Constructor"><a href="#Copy-Constructor" class="headerlink" title="Copy Constructor"></a><strong>Copy Constructor</strong></h1><ul>
+<li>以下三种情况需要调用copy constructor：<ul>
+<li>一个对象以值传递的方式传入函数体;</li>
+<li>一个对象以值传递的方式从函数返回;</li>
+<li>一个对象显式地使用另外一个对象进行初始化。</li>
+</ul>
+</li>
+</ul>
+<p>同样，如果没有显式定义，编译器就会在“需要的时候”合成copy constructor。copy constructor同样区分为trivial和nontrivial两种，<strong>只有nontrivial的实例（这里指代copy constructor）才会被实际上被合成出来</strong>，决定一个copy constructor是否为trivial的标准在于class是否展现出“bitwise copy semantics”（位逐次拷贝），即如果“bitwise copy semantics”已经能成功且正确地完成copy任务，则编译器无需再合成copy constructor，即为trivial。<code>（这里的主体是编译器，并不是程序，比如如果class成员包含指针，使用bitwise copy semantics的copy对程序来说可能会造成不同对象实例的成员指针引用同一块内存，会有double free等问题，但这和编译器是否会合成copy constructor没有关系）</code></p>
+<ul>
+<li>没有显式定义时，以下四种情况下，class 不展现“bitwise copy semantics”（即编译器使用bitwise copy semantics不能成功完成copy任务）：<ul>
+<li>当一个class内含一个member object 而后者的class声明有一个copy constructor时（不论是由class设计者显式声明还是由编译器隐式合成出来）;</li>
+<li>当class继承自一个base class 而后者存在一个copy constructor（不论是由class设计者显式声明还是由编译器隐式合成出来）;</li>
+<li>当class声明了一个或多个virtual functions时;</li>
+<li>当一个class派生自一个继承链，其中有一个或多个virtual base classes时。</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
