@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="tangxuan&#39;s Notes">
 <meta property="og:description" content="关于编译器合成的构造函数 本文从编译器的角度理解一些关于编译器默认合成的构造函数及对象初始化的一些细节，这些细节容易被忽略或者被误解。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-10T07:30:02.659Z">
+<meta property="og:updated_time" content="2020-05-10T07:32:44.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++构造函数与赋值函数">
 <meta name="twitter:description" content="关于编译器合成的构造函数 本文从编译器的角度理解一些关于编译器默认合成的构造函数及对象初始化的一些细节，这些细节容易被忽略或者被误解。">
@@ -399,10 +399,7 @@
 </ul>
 <p>至于没有存在这4种情况而又没有显式声明任何constructor的class，我们说它们拥有的是<strong>implicit trivial default constructors</strong>，它们实际上并不会被编译器合出来。</p>
 </li>
-<li><p><font color="red">误解二：编译器合成的default constructor会显式设定class内每一个数据成员（data member）的默认值。</font></p>
-<blockquote>
-<p>在合成的default constructor中，<strong>只有base class subobjects和member class objects会被初始化，所有其他的nonstatic data member（例如整数，整数指针，整数数组等）都不会被初始化。</strong>这些初始化操作作为对程序而言或许有必要，但对编译器来说是非必要的。</p>
-</blockquote>
+<li><p><font color="red">误解二：编译器合成的default constructor会显式设定class内每一个数据成员（data member）的默认值。</font><br>在合成的default constructor中，<strong>只有base class subobjects和member class objects会被初始化，所有其他的nonstatic data member（例如整数，整数指针，整数数组等）都不会被初始化。</strong>这些初始化操作作为对程序而言或许有必要，但对编译器来说是非必要的。</p>
 </li>
 </ul>
 <h1 id="Copy-Constructor"><a href="#Copy-Constructor" class="headerlink" title="Copy Constructor"></a><strong>Copy Constructor</strong></h1><ul>
